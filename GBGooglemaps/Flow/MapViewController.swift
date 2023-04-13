@@ -47,6 +47,7 @@ class MapViewController: UIViewController {
         locationManager?.pausesLocationUpdatesAutomatically = false
         locationManager?.startMonitoringSignificantLocationChanges()
         locationManager?.requestAlwaysAuthorization()
+
     }
 
     @IBAction func goToMoskow(_ sender: Any) {
@@ -77,8 +78,6 @@ extension MapViewController: CLLocationManagerDelegate {
         guard let coordinate = locations.last?.coordinate else {
             return
         }
-//        let marker = GMSMarker(position: coordinate)
-//        marker.map = mapView
         routePath?.add(coordinate)
         route?.path = routePath
 
@@ -87,7 +86,6 @@ extension MapViewController: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-
     }
 }
 

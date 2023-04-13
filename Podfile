@@ -7,14 +7,15 @@ target 'GBGooglemaps' do
 
   # Pods for GBGooglemaps
   pod 'GoogleMaps', '7.4.0'
+  # pod 'RealmSwift', '10'
   
-  target 'GBGooglemapsTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  # target 'GBGooglemapsTests' do
+  #   inherit! :search_paths
+  #   # Pods for testing
+  # end
 
-  target 'GBGooglemapsUITests' do
-    # Pods for testing
-  end
+  # target 'GBGooglemapsUITests' do
+  #   # Pods for testing
+  # end
 
 end
