@@ -597,6 +597,7 @@
 				DEVELOPMENT_TEAM = 47X734N754;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GBGooglemaps/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -626,6 +627,7 @@
 				DEVELOPMENT_TEAM = 47X734N754;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GBGooglemaps/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

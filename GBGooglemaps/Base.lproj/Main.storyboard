@@ -39,7 +39,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Marker"/>
                                 <connections>
-                                    <action selector="makeMarker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4cO-rn-z0Z"/>
+                                    <action selector="toggleTracking:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4cO-rn-z0Z"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -57,6 +57,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Fre-Yj-Itu" id="jUy-jr-InS"/>
+                        <outlet property="trackActivityButton" destination="Dux-nQ-pEr" id="xG9-M8-BBq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
