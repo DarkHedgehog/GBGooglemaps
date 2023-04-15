@@ -47,13 +47,24 @@ class MapViewController: UIViewController {
         locationManager?.pausesLocationUpdatesAutomatically = false
         locationManager?.startMonitoringSignificantLocationChanges()
         locationManager?.requestAlwaysAuthorization()
-
     }
 
-    @IBAction func goToMoskow(_ sender: Any) {
-        let coordinate = CLLocationCoordinate2D(latitude: 55.753215, longitude: 37.622504)
-        let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 17)
-        mapView.animate(to: camera)
+    @IBAction func showLastTrack(_ sender: Any) {
+        if let lastTrack = RealmService.instance.getLastRoute() {
+            let lastRoutePath = Track.toRoutePath(lastTrack)
+            let newRoute = GMSPolyline()
+            route?.map = nil
+            newRoute.map = mapView
+            newRoute.path = lastRoutePath
+
+            let bounds = GMSCoordinateBounds(path: lastRoutePath)
+            if let camera = mapView.camera(for: bounds, insets: .zero) {
+                mapView.animate(to: camera)
+            }
+
+            routePath = lastRoutePath
+            route = newRoute
+        }
     }
 
     @IBAction func toggleTracking(_ sender: Any) {
@@ -68,8 +79,11 @@ class MapViewController: UIViewController {
             locationManager?.startUpdatingLocation()
         } else {
             locationManager?.stopUpdatingLocation()
+            if let path = routePath {
+                let trackToStore = Track.buildFrom(gmsPath: path)
+                RealmService.instance.storeRoute(trackToStore)
+            }
         }
-
     }
 }
 
@@ -88,4 +102,3 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     }
 }
-
