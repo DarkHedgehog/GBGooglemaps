@@ -14,6 +14,7 @@
 		753E6D4529EAD4FF00AFB172 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E6D4429EAD4FF00AFB172 /* Track.swift */; };
 		753E6D4829EAD77900AFB172 /* Track+GMSPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E6D4729EAD77900AFB172 /* Track+GMSPath.swift */; };
 		753E6D4B29EAD8C300AFB172 /* GMSPath+Coords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E6D4A29EAD8C300AFB172 /* GMSPath+Coords.swift */; };
+		753E6D4E29EB4C4D00AFB172 /* UserConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E6D4D29EB4C4D00AFB172 /* UserConfirmation.swift */; };
 		75574D8E29E851390075192D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75574D8D29E851390075192D /* GoogleService-Info.plist */; };
 		75A6C0FB29D2416500649122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6C0FA29D2416500649122 /* AppDelegate.swift */; };
 		75A6C0FD29D2416500649122 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6C0FC29D2416500649122 /* SceneDelegate.swift */; };
@@ -32,6 +33,7 @@
 		753E6D4429EAD4FF00AFB172 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		753E6D4729EAD77900AFB172 /* Track+GMSPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Track+GMSPath.swift"; sourceTree = "<group>"; };
 		753E6D4A29EAD8C300AFB172 /* GMSPath+Coords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GMSPath+Coords.swift"; sourceTree = "<group>"; };
+		753E6D4D29EB4C4D00AFB172 /* UserConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfirmation.swift; sourceTree = "<group>"; };
 		75574D8D29E851390075192D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		75A6C0F729D2416500649122 /* GBGooglemaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBGooglemaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A6C0FA29D2416500649122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				753E6D4729EAD77900AFB172 /* Track+GMSPath.swift */,
+				753E6D4D29EB4C4D00AFB172 /* UserConfirmation.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				753E6D4B29EAD8C300AFB172 /* GMSPath+Coords.swift in Sources */,
+				753E6D4E29EB4C4D00AFB172 /* UserConfirmation.swift in Sources */,
 				75A6C0FF29D2416500649122 /* MapViewController.swift in Sources */,
 				753E6D4529EAD4FF00AFB172 /* Track.swift in Sources */,
 				753E6D4829EAD77900AFB172 /* Track+GMSPath.swift in Sources */,

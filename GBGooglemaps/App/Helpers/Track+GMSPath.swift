@@ -23,13 +23,13 @@ extension Track {
 
     static func toRoutePath(_ track: Track) -> GMSMutablePath {
         let path = GMSMutablePath()
-        track.coords.forEach({
+        track.coords.forEach {
             let coordinate = CLLocationCoordinate2D(
                 latitude: $0.latitude,
                 longitude: $0.longitude
             )
             path.add(coordinate)
-        })
-        return path;
+        }
+        return path
     }
 }

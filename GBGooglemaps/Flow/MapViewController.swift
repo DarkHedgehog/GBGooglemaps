@@ -18,6 +18,8 @@ class MapViewController: UIViewController {
     var locationManager: CLLocationManager?
     var isTrackingActive = false
 
+    private let userAsk = UserConfirmation.instance
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,6 +52,47 @@ class MapViewController: UIViewController {
     }
 
     @IBAction func showLastTrack(_ sender: Any) {
+        if isTrackingActive {
+            userAsk.basicConfirm(presenter: self, title: "Warning", message: "Stop active tracking?") { confirm in
+                if confirm == .okay {
+                    self.stopTracking(storeCurrent: false)
+                    self.showStoredTrack()
+                }
+            }
+        } else {
+            showStoredTrack()
+        }
+    }
+
+    @IBAction func toggleTracking(_ sender: Any) {
+        updateTrackActivityButton()
+
+        if !isTrackingActive {
+            startTracking()
+        } else {
+            stopTracking(storeCurrent: true)
+        }
+    }
+
+    func stopTracking(storeCurrent: Bool) {
+        isTrackingActive = false
+        locationManager?.stopUpdatingLocation()
+        if storeCurrent, let path = routePath {
+            let trackToStore = Track.buildFrom(gmsPath: path)
+            RealmService.instance.storeRoute(trackToStore)
+        }
+    }
+
+    func startTracking() {
+        isTrackingActive = true
+        route?.map = nil
+        route = GMSPolyline()
+        routePath = GMSMutablePath()
+        route?.map = mapView
+        locationManager?.startUpdatingLocation()
+    }
+
+    func showStoredTrack() {
         if let lastTrack = RealmService.instance.getLastRoute() {
             let lastRoutePath = Track.toRoutePath(lastTrack)
             let newRoute = GMSPolyline()
@@ -58,31 +101,13 @@ class MapViewController: UIViewController {
             newRoute.path = lastRoutePath
 
             let bounds = GMSCoordinateBounds(path: lastRoutePath)
-            if let camera = mapView.camera(for: bounds, insets: .zero) {
+            let insets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+            if let camera = mapView.camera(for: bounds, insets: insets) {
                 mapView.animate(to: camera)
             }
 
             routePath = lastRoutePath
             route = newRoute
-        }
-    }
-
-    @IBAction func toggleTracking(_ sender: Any) {
-        isTrackingActive.toggle()
-        updateTrackActivityButton()
-
-        if isTrackingActive {
-            route?.map = nil
-            route = GMSPolyline()
-            routePath = GMSMutablePath()
-            route?.map = mapView
-            locationManager?.startUpdatingLocation()
-        } else {
-            locationManager?.stopUpdatingLocation()
-            if let path = routePath {
-                let trackToStore = Track.buildFrom(gmsPath: path)
-                RealmService.instance.storeRoute(trackToStore)
-            }
         }
     }
 }

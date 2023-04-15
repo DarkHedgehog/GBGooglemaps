@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class RealmService {
+final class RealmService {
     private let realm: Realm?
 
     static let instance = RealmService()
