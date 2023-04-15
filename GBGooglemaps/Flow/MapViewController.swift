@@ -6,20 +6,36 @@
 //
 
 import UIKit
+import CoreData
 import GoogleMaps
 
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var trackActivityButton: UIButton!
 
+    var route: GMSPolyline?
+    var routePath: GMSMutablePath?
     var locationManager: CLLocationManager?
+    var isTrackingActive = false
+
+    private let userAsk = UserConfirmation.instance
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureUI()
         configureMap()
         configureLocationManager()
     }
 
+    private func configureUI() {
+        updateTrackActivityButton()
+    }
+
+    private func updateTrackActivityButton() {
+        let title = isTrackingActive ? "Stop tracking" : "Start tracking"
+        trackActivityButton.setTitle(title, for: .normal)
+    }
 
     private func configureMap() {
         mapView.isMyLocationEnabled = true
@@ -28,18 +44,71 @@ class MapViewController: UIViewController {
     private func configureLocationManager() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
-        locationManager?.requestWhenInUseAuthorization()
+        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager?.allowsBackgroundLocationUpdates = true
+        locationManager?.pausesLocationUpdatesAutomatically = false
+        locationManager?.startMonitoringSignificantLocationChanges()
+        locationManager?.requestAlwaysAuthorization()
     }
 
-    @IBAction func goToMoskow(_ sender: Any) {
-        let coordinate = CLLocationCoordinate2D(latitude: 55.753215, longitude: 37.622504)
-        let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 17)
-        mapView.animate(to: camera)
+    @IBAction func showLastTrack(_ sender: Any) {
+        if isTrackingActive {
+            userAsk.basicConfirm(presenter: self, title: "Warning", message: "Stop active tracking?") { confirm in
+                if confirm == .okay {
+                    self.stopTracking(storeCurrent: false)
+                    self.showStoredTrack()
+                }
+            }
+        } else {
+            showStoredTrack()
+        }
     }
 
-    @IBAction func makeMarker(_ sender: Any) {
-        locationManager?.requestLocation()
+    @IBAction func toggleTracking(_ sender: Any) {
+        updateTrackActivityButton()
+
+        if !isTrackingActive {
+            startTracking()
+        } else {
+            stopTracking(storeCurrent: true)
+        }
+    }
+
+    func stopTracking(storeCurrent: Bool) {
+        isTrackingActive = false
+        locationManager?.stopUpdatingLocation()
+        if storeCurrent, let path = routePath {
+            let trackToStore = Track.buildFrom(gmsPath: path)
+            RealmService.instance.storeRoute(trackToStore)
+        }
+    }
+
+    func startTracking() {
+        isTrackingActive = true
+        route?.map = nil
+        route = GMSPolyline()
+        routePath = GMSMutablePath()
+        route?.map = mapView
         locationManager?.startUpdatingLocation()
+    }
+
+    func showStoredTrack() {
+        if let lastTrack = RealmService.instance.getLastRoute() {
+            let lastRoutePath = Track.toRoutePath(lastTrack)
+            let newRoute = GMSPolyline()
+            route?.map = nil
+            newRoute.map = mapView
+            newRoute.path = lastRoutePath
+
+            let bounds = GMSCoordinateBounds(path: lastRoutePath)
+            let insets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+            if let camera = mapView.camera(for: bounds, insets: insets) {
+                mapView.animate(to: camera)
+            }
+
+            routePath = lastRoutePath
+            route = newRoute
+        }
     }
 }
 
@@ -48,16 +117,13 @@ extension MapViewController: CLLocationManagerDelegate {
         guard let coordinate = locations.last?.coordinate else {
             return
         }
+        routePath?.add(coordinate)
+        route?.path = routePath
+
         let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 17)
         mapView.animate(to: camera)
-        let marker = GMSMarker(position: coordinate)
-        marker.map = mapView
-
-        print(locations)
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-
     }
 }
-
