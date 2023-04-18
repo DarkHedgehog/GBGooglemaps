@@ -27,16 +27,12 @@ class TrackCoord: Object {
 }
 
 class Track: Object {
-//    static let trackPrimariId = 0
-
     @Persisted(primaryKey: true) var id = 0
-    @Persisted var createdAt1: Date
     @Persisted var createdAt: Date
     @Persisted var coords: List<TrackCoord>
 
     override init() {
         super.init()
-//        id = Track.trackPrimariId
         createdAt = Date()
         coords = List<TrackCoord>()
     }
