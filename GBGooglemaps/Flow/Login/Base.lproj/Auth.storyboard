@@ -106,7 +106,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Sign In"/>
                                         <connections>
-                                            <action selector="login:" destination="01J-lp-oVM" eventType="touchUpInside" id="pJw-IA-HUc"/>
+                                            <action selector="didTapSignIn:" destination="01J-lp-oVM" eventType="touchUpInside" id="pJw-IA-HUc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuR-zj-cVr">
@@ -115,10 +115,9 @@
                                             <constraint firstAttribute="height" constant="32" id="4Fp-9W-3RC"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Recovery"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Register"/>
                                         <connections>
-                                            <action selector="login:" destination="01J-lp-oVM" eventType="touchUpInside" id="S96-ax-lPZ"/>
-                                            <action selector="recovery:" destination="01J-lp-oVM" eventType="touchUpInside" id="hYk-ot-4tf"/>
+                                            <action selector="didTapRegister:" destination="01J-lp-oVM" eventType="touchUpInside" id="hYk-ot-4tf"/>
                                         </connections>
                                     </button>
                                 </subviews>

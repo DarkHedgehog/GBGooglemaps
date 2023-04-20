@@ -21,6 +21,8 @@
 		753E7FFE29EE58BD00A4D82A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E7FFD29EE58BD00A4D82A /* AppCoordinator.swift */; };
 		753E800029EE5B8800A4D82A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753E7FFF29EE5B8800A4D82A /* LaunchScreen.storyboard */; };
 		753E800229EE5D0200A4D82A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E800129EE5D0200A4D82A /* LoginViewModel.swift */; };
+		753E800429EE78EA00A4D82A /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E800329EE78EA00A4D82A /* ProfileService.swift */; };
+		753E800629F15AA600A4D82A /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E800529F15AA600A4D82A /* MapViewModel.swift */; };
 		75574D8E29E851390075192D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75574D8D29E851390075192D /* GoogleService-Info.plist */; };
 		75A6C0FB29D2416500649122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6C0FA29D2416500649122 /* AppDelegate.swift */; };
 		75A6C0FF29D2416500649122 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6C0FE29D2416500649122 /* MapViewController.swift */; };
@@ -45,6 +47,8 @@
 		753E7FFD29EE58BD00A4D82A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		753E7FFF29EE5B8800A4D82A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		753E800129EE5D0200A4D82A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		753E800329EE78EA00A4D82A /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		753E800529F15AA600A4D82A /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		75574D8D29E851390075192D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		75A6C0F729D2416500649122 /* GBGooglemaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBGooglemaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A6C0FA29D2416500649122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				753E6D4229E95FF000AFB172 /* DataStorage */,
+				753E800329EE78EA00A4D82A /* ProfileService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			children = (
 				75A6C10029D2416500649122 /* Main.storyboard */,
 				75A6C0FE29D2416500649122 /* MapViewController.swift */,
+				753E800529F15AA600A4D82A /* MapViewModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -397,11 +403,13 @@
 				753E6D4E29EB4C4D00AFB172 /* UserConfirmation.swift in Sources */,
 				75A6C0FF29D2416500649122 /* MapViewController.swift in Sources */,
 				753E6D4529EAD4FF00AFB172 /* Track.swift in Sources */,
+				753E800429EE78EA00A4D82A /* ProfileService.swift in Sources */,
 				753E6D4829EAD77900AFB172 /* Track+GMSPath.swift in Sources */,
 				753E7FF429EE4D8C00A4D82A /* User.swift in Sources */,
 				753E7FFC29EE584500A4D82A /* Coordinator.swift in Sources */,
 				753E800229EE5D0200A4D82A /* LoginViewModel.swift in Sources */,
 				75A6C0FB29D2416500649122 /* AppDelegate.swift in Sources */,
+				753E800629F15AA600A4D82A /* MapViewModel.swift in Sources */,
 				753E7FF929EE52A200A4D82A /* LoginViewController.swift in Sources */,
 				7513923329E82C1000D78104 /* RealmService.swift in Sources */,
 			);

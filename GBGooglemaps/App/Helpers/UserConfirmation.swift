@@ -25,6 +25,14 @@ final class UserConfirmation {
         presenter.present(alertController, animated: true, completion: nil)
     }
 
+    func basicWarning(presenter: UIViewController, title: String, message: String, handler: @escaping (ConfirmationResult) -> Void ) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            handler(ConfirmationResult.okay)
+        })
+        presenter.present(alertController, animated: true, completion: nil)
+    }
+
     enum ConfirmationResult {
         case okay
         case cancel

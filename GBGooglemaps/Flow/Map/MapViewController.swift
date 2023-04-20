@@ -13,6 +13,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var trackActivityButton: UIButton!
 
+    var viewModel: MapViewModel?
     var route: GMSPolyline?
     var routePath: GMSMutablePath?
     var locationManager: CLLocationManager?
