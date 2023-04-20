@@ -42,6 +42,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginView.autocorrectionType = .no
     }
 
     private func checkIsDataCorrect(login: String, password: String) -> Bool {
