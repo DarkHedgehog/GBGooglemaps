@@ -26,6 +26,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func applicationWillResignActive(_ application: UIApplication) {
+        print ("applicationWillResignActive")
+        appCoordinator?.lockScreen()
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        print ("applicationDidBecomeActive")
+        appCoordinator?.unlockScreen()
+    }
+
 //    // MARK: UISceneSession Lifecycle
 //    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
 //        // Called when a new scene session is being created.

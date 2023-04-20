@@ -11,6 +11,7 @@ final class AppCoordinator: Coordinator {
     var parent: Coordinator?
     var children: [Coordinator] = []
     var navigationController: UINavigationController
+    var lockController = UIViewController()
 
     let authStoryboard = UIStoryboard(name: "Auth", bundle: nil)
     let mapStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -50,5 +51,16 @@ final class AppCoordinator: Coordinator {
         viewModel.coordinator = self
         mapVC.viewModel = viewModel
         navigationController.pushViewController(mapVC, animated: true)
+    }
+
+    func lockScreen() {
+        lockController.navigationItem.setHidesBackButton(true, animated: false)
+        navigationController.pushViewController(lockController, animated: false)
+    }
+
+    func unlockScreen() {
+        if navigationController.topViewController === lockController {
+            navigationController.popViewController(animated: false)
+        }
     }
 }
