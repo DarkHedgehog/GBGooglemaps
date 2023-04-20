@@ -10,6 +10,9 @@ import Foundation
 final class MapViewModel {
     weak var coordinator: AppCoordinator?
 
+    func logout() {
+        coordinator?.goToLoginPage()
+    }
 //    func signIn(login: String, password: String) -> Bool {
 //        if let user = RealmService.instance.loginUser(login: login, password: password) {
 //            ProfileService.instance.isSignedUp = true

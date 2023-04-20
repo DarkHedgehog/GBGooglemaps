@@ -17,17 +17,22 @@ final class AppCoordinator: Coordinator {
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+//        navigationController.pushViewController(UIViewController(), animated: false)
     }
 
     func present() {
+        goToLoginPage() // make root
+
         if ProfileService.instance.isSignedUp {
             goToMap()
-        } else {
-            goToLoginPage()
         }
     }
 
     func goToLoginPage() {
+        if !navigationController.children.isEmpty {
+            navigationController.popViewController(animated: true)
+            return
+        }
         guard let loginVC = authStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else {
             return
         }

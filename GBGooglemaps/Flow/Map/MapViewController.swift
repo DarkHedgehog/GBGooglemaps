@@ -66,12 +66,24 @@ class MapViewController: UIViewController {
     }
 
     @IBAction func toggleTracking(_ sender: Any) {
-        updateTrackActivityButton()
-
         if !isTrackingActive {
             startTracking()
         } else {
             stopTracking(storeCurrent: true)
+        }
+        updateTrackActivityButton()
+    }
+
+    @IBAction func didTapLogout(_ sender: Any) {
+        if isTrackingActive {
+            userAsk.basicConfirm(presenter: self, title: "Warning", message: "Stop active tracking?") { confirm in
+                if confirm == .okay {
+                    self.stopTracking(storeCurrent: false)
+                    self.viewModel?.logout()
+                }
+            }
+        } else {
+            viewModel?.logout()
         }
     }
 
