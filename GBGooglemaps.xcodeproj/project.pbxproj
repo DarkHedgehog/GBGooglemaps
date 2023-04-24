@@ -269,6 +269,7 @@
 				75A6C0F529D2416500649122 /* Resources */,
 				3DD8F6ADD8764EB58B61D52A /* [CP] Copy Pods Resources */,
 				7513923429E82D4500D78104 /* ShellScript */,
+				8B421C533EF8D210D48EF965 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -308,7 +309,7 @@
 			);
 			mainGroup = 75A6C0EE29D2416500649122;
 			packageReferences = (
-				753E6D3D29E8518800AFB172 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				753E6D3D29E8518800AFB172 /* XCRemoteSwiftPackageReference "realm-swift.git" */,
 			);
 			productRefGroup = 75A6C0F829D2416500649122 /* Products */;
 			projectDirPath = "";
@@ -390,6 +391,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# exit 0\nPATH=/opt/homebrew/bin:$PATH\nif [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
+		};
+		8B421C533EF8D210D48EF965 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GBGooglemaps/Pods-GBGooglemaps-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GBGooglemaps/Pods-GBGooglemaps-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GBGooglemaps/Pods-GBGooglemaps-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -636,7 +654,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		753E6D3D29E8518800AFB172 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		753E6D3D29E8518800AFB172 /* XCRemoteSwiftPackageReference "realm-swift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -649,12 +667,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		753E6D3E29E8518800AFB172 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 753E6D3D29E8518800AFB172 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = 753E6D3D29E8518800AFB172 /* XCRemoteSwiftPackageReference "realm-swift.git" */;
 			productName = Realm;
 		};
 		753E6D4029E8518800AFB172 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 753E6D3D29E8518800AFB172 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = 753E6D3D29E8518800AFB172 /* XCRemoteSwiftPackageReference "realm-swift.git" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
