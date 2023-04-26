@@ -141,8 +141,10 @@
                         </constraints>
                     </stackView>
                     <connections>
-                        <outlet property="loginView" destination="wV5-HL-c8W" id="IHc-Ar-hrO"/>
-                        <outlet property="passwordView" destination="wXK-gG-Vw2" id="wfI-1h-X7Q"/>
+                        <outlet property="loginButton" destination="AxT-fn-Ubn" id="vwf-wS-EpB"/>
+                        <outlet property="loginField" destination="wV5-HL-c8W" id="IHc-Ar-hrO"/>
+                        <outlet property="passwordField" destination="wXK-gG-Vw2" id="wfI-1h-X7Q"/>
+                        <outlet property="registerButton" destination="WuR-zj-cVr" id="WUe-j2-RXa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
