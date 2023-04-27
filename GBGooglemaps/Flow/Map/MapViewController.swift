@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import CoreData
 import GoogleMaps
+import RxSwift
 
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
@@ -16,10 +16,11 @@ class MapViewController: UIViewController {
     var viewModel: MapViewModel?
     var route: GMSPolyline?
     var routePath: GMSMutablePath?
-    var locationManager: CLLocationManager?
+    var locationManager = LocationManager.instance
     var isTrackingActive = false
 
     private let userAsk = UserConfirmation.instance
+    private var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +44,17 @@ class MapViewController: UIViewController {
     }
 
     private func configureLocationManager() {
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager?.allowsBackgroundLocationUpdates = true
-        locationManager?.pausesLocationUpdatesAutomatically = false
-        locationManager?.startMonitoringSignificantLocationChanges()
-        locationManager?.requestAlwaysAuthorization()
+        locationManager.location.subscribe { location in
+            guard let coordinate = location?.coordinate else {
+                return
+            }
+            self.routePath?.add(coordinate)
+            self.route?.path = self.routePath
+
+            let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 17)
+            self.mapView.animate(to: camera)
+        }
+        .disposed(by: disposeBag)
     }
 
     @IBAction func showLastTrack(_ sender: Any) {
@@ -89,7 +94,7 @@ class MapViewController: UIViewController {
 
     func stopTracking(storeCurrent: Bool) {
         isTrackingActive = false
-        locationManager?.stopUpdatingLocation()
+        locationManager.stopUpdatingLocation()
         if storeCurrent, let path = routePath {
             let trackToStore = Track.buildFrom(gmsPath: path)
             RealmService.instance.storeRoute(trackToStore)
@@ -102,7 +107,7 @@ class MapViewController: UIViewController {
         route = GMSPolyline()
         routePath = GMSMutablePath()
         route?.map = mapView
-        locationManager?.startUpdatingLocation()
+        locationManager.startUpdatingLocation()
     }
 
     func showStoredTrack() {
@@ -122,21 +127,5 @@ class MapViewController: UIViewController {
             routePath = lastRoutePath
             route = newRoute
         }
-    }
-}
-
-extension MapViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let coordinate = locations.last?.coordinate else {
-            return
-        }
-        routePath?.add(coordinate)
-        route?.path = routePath
-
-        let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 17)
-        mapView.animate(to: camera)
-    }
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     }
 }

@@ -24,6 +24,7 @@
 		753E800429EE78EA00A4D82A /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E800329EE78EA00A4D82A /* ProfileService.swift */; };
 		753E800629F15AA600A4D82A /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E800529F15AA600A4D82A /* MapViewModel.swift */; };
 		75574D8E29E851390075192D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75574D8D29E851390075192D /* GoogleService-Info.plist */; };
+		758B8BB129FA8D5B002084B0 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B8BB029FA8D5B002084B0 /* LocationManager.swift */; };
 		75A6C0FB29D2416500649122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6C0FA29D2416500649122 /* AppDelegate.swift */; };
 		75A6C0FF29D2416500649122 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6C0FE29D2416500649122 /* MapViewController.swift */; };
 		75A6C10229D2416500649122 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A6C10029D2416500649122 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		753E800329EE78EA00A4D82A /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		753E800529F15AA600A4D82A /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		75574D8D29E851390075192D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		758B8BB029FA8D5B002084B0 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		75A6C0F729D2416500649122 /* GBGooglemaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBGooglemaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A6C0FA29D2416500649122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75A6C0FE29D2416500649122 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				753E6D4229E95FF000AFB172 /* DataStorage */,
 				753E800329EE78EA00A4D82A /* ProfileService.swift */,
+				758B8BB029FA8D5B002084B0 /* LocationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				75A6C0F529D2416500649122 /* Resources */,
 				3DD8F6ADD8764EB58B61D52A /* [CP] Copy Pods Resources */,
 				7513923429E82D4500D78104 /* ShellScript */,
+				8B421C533EF8D210D48EF965 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -391,6 +395,23 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# exit 0\nPATH=/opt/homebrew/bin:$PATH\nif [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
 		};
+		8B421C533EF8D210D48EF965 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GBGooglemaps/Pods-GBGooglemaps-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GBGooglemaps/Pods-GBGooglemaps-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GBGooglemaps/Pods-GBGooglemaps-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -400,6 +421,7 @@
 			files = (
 				753E7FFE29EE58BD00A4D82A /* AppCoordinator.swift in Sources */,
 				753E6D4B29EAD8C300AFB172 /* GMSPath+Coords.swift in Sources */,
+				758B8BB129FA8D5B002084B0 /* LocationManager.swift in Sources */,
 				753E6D4E29EB4C4D00AFB172 /* UserConfirmation.swift in Sources */,
 				75A6C0FF29D2416500649122 /* MapViewController.swift in Sources */,
 				753E6D4529EAD4FF00AFB172 /* Track.swift in Sources */,
