@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var appCoordinator: AppCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GMSServices.provideAPIKey("AIzaSyC_Krt1AUhk8GfG8iiQAb7BXZSLa7ayfpo")
+        GMSServices.provideAPIKey("AIzaSyBJgja5MmDDMGXvKQmcgzHyUMt4BvXpQTw")
 
         window = UIWindow(frame: UIScreen.main.bounds)
         let navigationController = UINavigationController.init()
