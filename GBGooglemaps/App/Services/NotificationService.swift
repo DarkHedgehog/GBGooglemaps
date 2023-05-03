@@ -50,7 +50,7 @@ final class NotificationService {
 
     func makeIntervalNotificatioTrigger() -> UNNotificationTrigger {
         return UNTimeIntervalNotificationTrigger(
-            timeInterval: 5,
+            timeInterval: 30 * 60,
             repeats: false
         )
     }
