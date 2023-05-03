@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         GMSServices.provideAPIKey("AIzaSyBJgja5MmDDMGXvKQmcgzHyUMt4BvXpQTw")
 
+        NotificationService.shared.configure()
+
         window = UIWindow(frame: UIScreen.main.bounds)
         let navigationController = UINavigationController.init()
         appCoordinator = AppCoordinator(navigationController: navigationController)
@@ -28,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillResignActive(_ application: UIApplication) {
         print ("applicationWillResignActive")
+        NotificationService.shared.sendNotification()
         appCoordinator?.lockScreen()
     }
 
@@ -35,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print ("applicationDidBecomeActive")
         appCoordinator?.unlockScreen()
     }
+
 
 //    // MARK: UISceneSession Lifecycle
 //    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
