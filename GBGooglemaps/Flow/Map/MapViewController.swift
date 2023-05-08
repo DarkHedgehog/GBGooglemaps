@@ -50,10 +50,7 @@ class MapViewController: UIViewController {
             self.iconMarker?.map = nil
             let marker = GMSMarker()
             let markerView = UIImageView(image: markerImage)
-//            marker.position = CLLocationCoordinate2D(latitude: 28.7041, longitude: 77.1025)
             marker.iconView = markerView
-//            marker.title = "New Delhi"
-//            marker.snippet = "India"
             marker.map = mapView
             mapView.selectedMarker = marker
             iconMarker = marker

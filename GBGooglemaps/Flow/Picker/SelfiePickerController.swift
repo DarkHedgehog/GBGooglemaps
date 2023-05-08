@@ -8,7 +8,6 @@
 import UIKit
 
 class SelfiePickerController: NSObject {
-
     private let pickerController: UIImagePickerController
     private weak var presentationController: UIViewController?
     private var handler: ((UIImage?) -> Void)?
@@ -37,6 +36,7 @@ class SelfiePickerController: NSObject {
             try? pngData.write(to: path)
         }
     }
+
     static func readAvatar() -> UIImage? {
         if let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let fileUrl = documentPath.appendingPathComponent("avatar.png")
@@ -45,16 +45,9 @@ class SelfiePickerController: NSObject {
         }
         return nil
     }
-
-
-
 }
 
-extension SelfiePickerController: UINavigationControllerDelegate {
-
-}
-
-extension SelfiePickerController: UIImagePickerControllerDelegate {
+extension SelfiePickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Если нажали на кнопку Отмена, то UIImagePickerController надо закрыть
         picker.dismiss(animated: true)
