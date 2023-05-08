@@ -13,6 +13,8 @@ final class AppCoordinator: Coordinator {
     var navigationController: UINavigationController
     var lockController = UIViewController()
 
+    var imagePickerController: SelfiePickerController?
+
     let authStoryboard = UIStoryboard(name: "Auth", bundle: nil)
     let mapStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
@@ -51,6 +53,11 @@ final class AppCoordinator: Coordinator {
         viewModel.coordinator = self
         mapVC.viewModel = viewModel
         navigationController.pushViewController(mapVC, animated: true)
+    }
+
+    func gotoTakePicture(for controller: UIViewController, handler: @escaping (UIImage?) -> Void) {
+        imagePickerController = SelfiePickerController(presentationController: controller) // Источник изображений: камера
+        imagePickerController?.present(handler: handler)
     }
 
     func lockScreen() {
