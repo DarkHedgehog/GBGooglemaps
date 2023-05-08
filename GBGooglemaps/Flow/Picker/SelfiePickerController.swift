@@ -28,6 +28,26 @@ class SelfiePickerController: NSObject {
         self.handler = handler
         presentationController?.present(pickerController, animated: true)
     }
+
+    static func saveAvatar(_ image: UIImage) {
+        if let scaledImage = image.copy(newSize: CGSize(width: 32, height: 32)),
+           let pngData = scaledImage.pngData(),
+           let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let path = documentPath.appendingPathComponent("avatar.png")
+            try? pngData.write(to: path)
+        }
+    }
+    static func readAvatar() -> UIImage? {
+        if let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileUrl = documentPath.appendingPathComponent("avatar.png")
+            let image = UIImage(contentsOfFile: fileUrl.path())
+            return image
+        }
+        return nil
+    }
+
+
+
 }
 
 extension SelfiePickerController: UINavigationControllerDelegate {

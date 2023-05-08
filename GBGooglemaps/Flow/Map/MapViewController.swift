@@ -16,6 +16,7 @@ class MapViewController: UIViewController {
     var viewModel: MapViewModel?
     var route: GMSPolyline?
     var routePath: GMSMutablePath?
+    var iconMarker: GMSMarker?
     var locationManager = LocationManager.instance
     var isTrackingActive = false
 
@@ -41,6 +42,22 @@ class MapViewController: UIViewController {
 
     private func configureMap() {
         mapView.isMyLocationEnabled = true
+        configureAvatarMarker()
+    }
+
+    private func configureAvatarMarker() {
+        if let markerImage = SelfiePickerController.readAvatar() {
+            self.iconMarker?.map = nil
+            let marker = GMSMarker()
+            let markerView = UIImageView(image: markerImage)
+//            marker.position = CLLocationCoordinate2D(latitude: 28.7041, longitude: 77.1025)
+            marker.iconView = markerView
+//            marker.title = "New Delhi"
+//            marker.snippet = "India"
+            marker.map = mapView
+            mapView.selectedMarker = marker
+            iconMarker = marker
+        }
     }
 
     private func configureLocationManager() {
@@ -53,6 +70,7 @@ class MapViewController: UIViewController {
 
             let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 17)
             self.mapView.animate(to: camera)
+            self.iconMarker?.position = coordinate
         }
         .disposed(by: disposeBag)
     }
@@ -94,7 +112,10 @@ class MapViewController: UIViewController {
 
     @IBAction func didTapSelfie(_ sender: Any) {
         viewModel?.takePicture(for: self) { image in
-            print(image)
+            if let image = image {
+                SelfiePickerController.saveAvatar(image)
+            }
+            self.configureAvatarMarker()
         }
     }
 

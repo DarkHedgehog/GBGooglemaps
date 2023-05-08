@@ -11,6 +11,7 @@
 		750CD7A12A024E36009CE837 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750CD7A02A024E36009CE837 /* NotificationService.swift */; };
 		750CD7AF2A091772009CE837 /* SelfiePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750CD7AE2A091772009CE837 /* SelfiePickerController.swift */; };
 		7513923329E82C1000D78104 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513923229E82C1000D78104 /* RealmService.swift */; };
+		7513B28B2A093D0000E7BFE4 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513B28A2A093D0000E7BFE4 /* UIImage+resize.swift */; };
 		753E6D3F29E8518800AFB172 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 753E6D3E29E8518800AFB172 /* Realm */; };
 		753E6D4129E8518800AFB172 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 753E6D4029E8518800AFB172 /* RealmSwift */; };
 		753E6D4529EAD4FF00AFB172 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E6D4429EAD4FF00AFB172 /* Track.swift */; };
@@ -42,6 +43,7 @@
 		750CD7A02A024E36009CE837 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		750CD7AE2A091772009CE837 /* SelfiePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfiePickerController.swift; sourceTree = "<group>"; };
 		7513923229E82C1000D78104 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		7513B28A2A093D0000E7BFE4 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		753E6D4429EAD4FF00AFB172 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		753E6D4729EAD77900AFB172 /* Track+GMSPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Track+GMSPath.swift"; sourceTree = "<group>"; };
 		753E6D4A29EAD8C300AFB172 /* GMSPath+Coords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GMSPath+Coords.swift"; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				753E6D4A29EAD8C300AFB172 /* GMSPath+Coords.swift */,
+				7513B28A2A093D0000E7BFE4 /* UIImage+resize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				753E800629F15AA600A4D82A /* MapViewModel.swift in Sources */,
 				753E7FF929EE52A200A4D82A /* LoginViewController.swift in Sources */,
 				7513923329E82C1000D78104 /* RealmService.swift in Sources */,
+				7513B28B2A093D0000E7BFE4 /* UIImage+resize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
