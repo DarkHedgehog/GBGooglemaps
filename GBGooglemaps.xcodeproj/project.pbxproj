@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4067DC3F0958CF8B050A99D5 /* Pods_GBGooglemaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 001ABC9E1C325BA779BB326D /* Pods_GBGooglemaps.framework */; };
 		750CD7A12A024E36009CE837 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750CD7A02A024E36009CE837 /* NotificationService.swift */; };
+		750CD7AF2A091772009CE837 /* SelfiePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750CD7AE2A091772009CE837 /* SelfiePickerController.swift */; };
 		7513923329E82C1000D78104 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513923229E82C1000D78104 /* RealmService.swift */; };
 		753E6D3F29E8518800AFB172 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 753E6D3E29E8518800AFB172 /* Realm */; };
 		753E6D4129E8518800AFB172 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 753E6D4029E8518800AFB172 /* RealmSwift */; };
@@ -39,6 +40,7 @@
 		336E26744FA72568AD8D5B56 /* Pods-GBGooglemaps-GBGooglemapsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GBGooglemaps-GBGooglemapsUITests.release.xcconfig"; path = "Target Support Files/Pods-GBGooglemaps-GBGooglemapsUITests/Pods-GBGooglemaps-GBGooglemapsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		35EE4A98D52B8F90D3E31D5C /* Pods_GBGooglemapsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GBGooglemapsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		750CD7A02A024E36009CE837 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		750CD7AE2A091772009CE837 /* SelfiePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfiePickerController.swift; sourceTree = "<group>"; };
 		7513923229E82C1000D78104 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		753E6D4429EAD4FF00AFB172 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		753E6D4729EAD77900AFB172 /* Track+GMSPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Track+GMSPath.swift"; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 				A61E1618C977FA771A2C6CEA /* Pods-GBGooglemapsTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		750CD7AD2A09173E009CE837 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				750CD7AE2A091772009CE837 /* SelfiePickerController.swift */,
+			);
+			path = Picker;
 			sourceTree = "<group>";
 		};
 		7513923029E82BCE00D78104 /* App */ = {
@@ -194,6 +204,7 @@
 		7541EADD29D24D1200A21909 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				750CD7AD2A09173E009CE837 /* Picker */,
 				753E7FFF29EE5B8800A4D82A /* LaunchScreen.storyboard */,
 				753E7FF629EE501100A4D82A /* Login */,
 				753E7FF529EE500800A4D82A /* Map */,
@@ -425,6 +436,7 @@
 				753E7FFE29EE58BD00A4D82A /* AppCoordinator.swift in Sources */,
 				753E6D4B29EAD8C300AFB172 /* GMSPath+Coords.swift in Sources */,
 				758B8BB129FA8D5B002084B0 /* LocationManager.swift in Sources */,
+				750CD7AF2A091772009CE837 /* SelfiePickerController.swift in Sources */,
 				753E6D4E29EB4C4D00AFB172 /* UserConfirmation.swift in Sources */,
 				75A6C0FF29D2416500649122 /* MapViewController.swift in Sources */,
 				753E6D4529EAD4FF00AFB172 /* Track.swift in Sources */,

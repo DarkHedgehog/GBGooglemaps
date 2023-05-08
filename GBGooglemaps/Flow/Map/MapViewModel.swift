@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class MapViewModel {
     weak var coordinator: AppCoordinator?
@@ -13,22 +14,8 @@ final class MapViewModel {
     func logout() {
         coordinator?.goToLoginPage()
     }
-//    func signIn(login: String, password: String) -> Bool {
-//        if let user = RealmService.instance.loginUser(login: login, password: password) {
-//            ProfileService.instance.isSignedUp = true
-//
-//            coordinator.gotoMap()
-//            return true
-//        }
-//        return false
-//    }
-//
-//    func register(login: String, password: String) {
-//        if let user = RealmService.instance.getUser(login: login) {
-//            RealmService.instance.changePassword(user, password: password)
-//        } else {
-//            let user = User(login: login, password: password)
-//            RealmService.instance.saveUser(user)
-//        }
-//    }
+
+    func takePicture(for controller: UIViewController, handler: @escaping (UIImage?) -> Void) {
+        coordinator?.gotoTakePicture(for: controller, handler: handler)
+    }
 }

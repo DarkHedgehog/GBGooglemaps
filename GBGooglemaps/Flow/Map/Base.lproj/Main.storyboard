@@ -28,6 +28,11 @@
                                             <action selector="didTapLogout:" destination="BYZ-38-t0r" id="vi1-gO-CLf"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Selfie" id="ITj-cd-Tio">
+                                        <connections>
+                                            <action selector="didTapSelfie:" destination="BYZ-38-t0r" id="LNg-o0-w6U"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fre-Yj-Itu" customClass="GMSMapView">

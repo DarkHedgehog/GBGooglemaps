@@ -92,6 +92,12 @@ class MapViewController: UIViewController {
         }
     }
 
+    @IBAction func didTapSelfie(_ sender: Any) {
+        viewModel?.takePicture(for: self) { image in
+            print(image)
+        }
+    }
+
     func stopTracking(storeCurrent: Bool) {
         isTrackingActive = false
         locationManager.stopUpdatingLocation()
